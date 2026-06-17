@@ -226,4 +226,5 @@ data/outputs/*
 *.img
 *.aux.xml
 *.ovr
-*.lock.idea/
+*.lock
+.idea/
