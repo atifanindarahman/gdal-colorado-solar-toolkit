@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-
+# Inspect a raster — always do this before any processing
+# Usage: bash scripts/01_inspect.sh data/raw/your_file.tif
 set -euo pipefail
 
 INPUT="${1:?Usage: $0 <input_raster.tif>}"
 
 echo "============================================="
-echo " Solargis Colorado GHI Raster Inspection"
+echo " Raster Inspection: $(basename $INPUT)"
 echo "============================================="
 
 echo ""
@@ -17,7 +18,7 @@ echo "--- Coordinate System ---"
 gdalinfo "$INPUT" | grep -A 8 "Coordinate System is"
 
 echo ""
-echo "--- Statistics ---"
+echo "--- Band Statistics ---"
 gdalinfo -stats "$INPUT" | grep "STATISTICS_"
 
 echo ""
